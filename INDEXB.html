@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kadheeja   &   Athif — Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f8f4ec;
+      --cream-dark: #eee7d9;
+      --green: #20382e;
+      --green-light: #315447;
+      --gold: #b3915b;
+      --gold-light: #d3b77d;
+      --text: #29332d;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       AUDIO PLAYER CONTROLS
+    ========================= */
+    .music-btn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 999;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid var(--gold-light);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+      background: var(--green-light);
+    }
+
+    .music-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .music-btn.playing svg {
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* =========================
+       COVER
+    ========================= */
+
+    .cover {
+      min-height: 100vh;
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          rgba(24, 49, 40, 0.68),
+          rgba(24, 49, 40, 0.78)
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 25px;
+      border: 1px solid rgba(211, 183, 125, 0.6);
+      pointer-events: none;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .arabic {
+      font-family: "Noto Naskh Arabic", serif;
+      font-size: clamp(28px, 5vw, 45px);
+      margin-bottom: 20px;
+      color: #f0ddad;
+    }
+
+    .invite-text {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+
+    .names {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(65px, 13vw, 125px);
+      line-height: 0.95;
+      color: #f2d9a4;
+      font-weight: 400;
+    }
+
+    .date-top {
+      margin-top: 25px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .open-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 34px;
+      border: 1px solid var(--gold-light);
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      transition: 0.35s ease;
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+
+    .open-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-label {
+      text-align: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 10px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(45px, 8vw, 75px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 45px;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 25px 0;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      height: 1px;
+      width: 65px;
+      background: var(--gold);
+      opacity: .6;
+    }
+
+    /* =========================
+       INVITATION
+    ========================= */
+
+    .invitation {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(179,145,91,.10), transparent 25%),
+        radial-gradient(circle at 90% 90%, rgba(179,145,91,.10), transparent 25%),
+        var(--cream);
+    }
+
+    .bismillah {
+      text-align: center;
+      font-family: "Noto Naskh Arabic", serif;
+      color: var(--green);
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .invitation-text {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      line-height: 1.6;
+      font-style: italic;
+      color: #4b554e;
+    }
+
+    /* =========================
+       COUPLE
+    ========================= */
+
+    .couple {
+      background: var(--green);
+      color: white;
+    }
+
+    .couple .section-title {
+      color: #ead6a5;
+    }
+
+    .couple-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .person {
+      padding: 20px;
+    }
+
+    .person-label {
+      color: var(--gold-light);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .person-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 65px;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .person-family {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.75);
+    }
+
+    /* =========================
+       CELEBRATION
+    ========================= */
+
+    .celebration {
+      background: var(--cream-dark);
+    }
+
+    .date-card {
+      max-width: 850px;
+      margin: auto;
+      border: 1px solid rgba(179,145,91,.55);
+      padding: 45px 25px;
+      text-align: center;
+      background: rgba(255,255,255,.28);
+    }
+
+    .day {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      color: var(--green);
+    }
+
+    .big-date {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(65px, 10vw, 100px);
+      color: var(--gold);
+      line-height: 1;
+      margin: 8px 0;
+    }
+
+    .month {
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 13px;
+      color: var(--green);
+    }
+
+    .event-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 650px;
+      margin: 50px auto 0;
+      gap: 35px;
+    }
+
+    .info-box {
+      text-align: center;
+    }
+
+    .info-title {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 10px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .info-main {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      color: var(--green);
+    }
+
+    .info-sub {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #69736c;
+    }
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
+
+    .countdown-section {
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .countdown-section .section-label {
+      color: var(--gold-light);
+    }
+
+    .countdown-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(45px, 8vw, 75px);
+      color: #ead6a5;
+      margin-bottom: 45px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 800px;
+      margin: auto;
+      gap: 15px;
+    }
+
+    .count-box {
+      border-right: 1px solid rgba(211,183,125,.35);
+      padding: 10px;
+    }
+
+    .count-box:last-child {
+      border-right: none;
+    }
+
+    .count-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(40px, 7vw, 70px);
+      color: white;
+    }
+
+    .count-label {
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+    }
+
+    /* =========================
+       EVENT DETAILS
+    ========================= */
+
+    .details {
+      background: var(--cream);
+    }
+
+    .details-card {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid rgba(179,145,91,.5);
+    }
+
+    .details-content {
+      padding: 55px 45px;
+    }
+
+    .details-content h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 40px;
+      color: var(--green);
+      margin-bottom: 30px;
+    }
+
+    .detail-row {
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(32,56,46,.12);
+    }
+
+    .detail-label {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 9px;
+      margin-bottom: 7px;
+    }
+
+    .detail-value {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      color: #3e4942;
+      line-height: 1.4;
+    }
+
+    .map {
+      min-height: 450px;
+      border: none;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      border: 0;
+    }
+
+    .directions {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 22px;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 9px;
+      transition: .3s;
+    }
+
+    .directions:hover {
+      background: var(--gold);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #182c24;
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    footer p {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 9px;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .footer-names {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 65px;
+      color: #ead6a5;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 1s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .cover::before {
+        inset: 15px;
+      }
+
+      .names {
+        font-size: 70px;
+      }
+
+      .couple-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .person-name {
+        font-size: 58px;
+      }
+
+      .event-info {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+      }
+
+      .count-box:nth-child(2) {
+        border-right: none;
+      }
+
+      .details-card {
+        grid-template-columns: 1fr;
+      }
+
+      .details-content {
+        padding: 40px 25px;
+      }
+
+      .map,
+      .map iframe {
+        min-height: 350px;
+      }
+
+      .footer-names {
+        font-size: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       AUDIO ELEMENT & CONTROLLER
+  ========================== -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-wedding-march-1229.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="music-btn" class="music-btn" title="Toggle Music">
+    <!-- Play Icon (Default) -->
+    <svg id="play-icon" viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <!-- Pause Icon (Hidden) -->
+    <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;">
+      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+  </button>
+
+  <!-- =========================
+       COVER
+  ========================== -->
+
+  <header class="cover">
+
+    <div class="cover-content">
+
+      <div class="arabic">
+        السَّلَامُ عَلَيْكُمْ
+      </div>
+
+      <div class="invite-text">
+        You are cordially invited
+      </div>
+
+      <div class="names">
+        Kadheeja & Athif
+      </div>
+
+      <div class="date-top">
+        11th October 2026 
+      </div>
+
+      <a href="#invitation" class="open-btn" id="open-btn">
+        Open Invitation
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       INVITATION
+  ========================== -->
+
+  <section id="invitation" class="invitation reveal">
+
+    <div class="container">
+
+      <div class="bismillah">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      </div>
+
+      <div class="ornament">✦</div>
+
+      <p class="invitation-text">
+        “Cordially invite your esteemed presence with family
+        on the auspicious occasion of our wedding ceremony”
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COUPLE
+  ========================== -->
+
+  <section class="couple reveal">
+
+    <div class="container">
+
+      <div class="section-label">
+        Together with their families
+      </div>
+
+      <h2 class="section-title">
+        The Couple
+      </h2>
+
+      <div class="couple-grid">
+
+        <div class="person">
+
+          <div class="person-label">
+            The Bride
+          </div>
+
+          <div class="person-name">
+           KADHEEJA BEEVI 
+          </div>
+
+          <div class="person-family">
+           D/o. Kammakkakam Abdulrahiman
+            & Alihassan Marakarakam Sameena
+          </div>
+
+        </div>
+
+
+        <div class="person">
+
+          <div class="person-label">
+            The Groom
+          </div>
+
+          <div class="person-name">
+           MOHAMMED ATHIF 
+          </div>
+
+          <div class="person-family">
+            S/o. Mohammed Yunus Eramakkaveedu (Bichu)
+            & Sareena Minikkintakam
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CELEBRATION
+  ========================== -->
+
+  <section class="celebration reveal">
+
+    <div class="container">
+
+      <div class="section-label">
+        Save the Date
+      </div>
+
+      <h2 class="section-title">
+        The Celebration
+      </h2>
+
+      <div class="date-card">
+
+        <div class="day">
+          Sunday 
+        </div>
+
+        <div class="big-date">
+          11th
+        </div>
+
+        <div class="month">
+          October 2026
+        </div>
+
+        <div class="event-info">
+
+          <div class="info-box">
+            <div class="info-title">
+              Venue
+            </div>
+
+            <div class="info-main">
+              Grand Auditorium 
+            </div>
+
+            <div class="info-sub">
+              Francis Road, Calicut 
+            </div>
+          </div>
+
+
+          <div class="info-box">
+
+            <div class="info-title">
+              Time
+            </div>
+
+            <div class="info-main">
+              1:00 PM Onwards 
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COUNTDOWN
+  ========================== -->
+
+  <section class="countdown-section reveal">
+
+    <div class="container">
+
+      <div class="section-label">
+        Counting The Blessings 
+      </div>
+
+      <h2 class="countdown-title">
+        In sha Allah 
+      </h2>
+
+      <div class="countdown">
+
+        <div class="count-box">
+          <div class="count-number" id="days">--</div>
+          <div class="count-label">Days</div>
+        </div>
+
+        <div class="count-box">
+          <div class="count-number" id="hours">--</div>
+          <div class="count-label">Hours</div>
+        </div>
+
+        <div class="count-box">
+          <div class="count-number" id="minutes">--</div>
+          <div class="count-label">Minutes</div>
+        </div>
+
+        <div class="count-box">
+          <div class="count-number" id="seconds">--</div>
+          <div class="count-label">Seconds</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       EVENT DETAILS
+  ========================== -->
+
+  <section class="details reveal">
+
+    <div class="container">
+
+      <div class="section-label">
+        Join us
+      </div>
+
+      <h2 class="section-title">
+        Event Details
+      </h2>
+
+      <div class="details-card">
+
+        <div class="details-content">
+
+          <h3>
+            The Wedding
+          </h3>
+
+          <div class="detail-row">
+
+            <span class="detail-label">
+              Date
+            </span>
+
+            <span class="detail-value">
+              Sunday, 11th October 2026
+            </span>
+
+          </div>
+
+
+          <div class="detail-row">
+
+            <span class="detail-label">
+              Venue
+            </span>
+
+            <span class="detail-value">
+              Grand Auditorium 
+            </span>
+
+          </div>
+
+
+          <div class="detail-row">
+
+            <span class="detail-label">
+              Address
+            </span>
+
+            <span class="detail-value">
+              Francis Road, Calicut 
+            </span>
+
+          </div>
+
+
+          <a
+            class="directions"
+            href="https://maps.google.com/?q=Grand+Auditorium+Francis+Road+Kuttichira+Kozhikode" target="_blank"
+            rel="noopener"
+          >
+            Get Directions
+          </a>
+
+        </div>
+
+
+        <div class="map">
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.123565983713!2d75.7801!3d11.2464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6593f6631c3bf%3A0x6fbca80a322c366b!2sGrand%20Auditorium!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <p>
+      Sharing happiness - Ihsan jareer & Suhail 
+    </p>
+
+    <div class="footer-names">
+     K & A
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* -------------------------
+       AUDIO PLAYER JS
+    ------------------------- */
+    const audio = document.getElementById("wedding-audio");
+    const musicBtn = document.getElementById("music-btn");
+    const playIcon = document.getElementById("play-icon");
+    const pauseIcon = document.getElementById("pause-icon");
+    const openBtn = document.getElementById("open-btn");
+
+    function playMusic() {
+      audio.play().then(() => {
+        musicBtn.classList.add("playing");
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "block";
+      }).catch((err) => {
+        console.log("Autoplay failed due to user interaction restrictions:", err);
+      });
+    }
+
+    function pauseMusic() {
+      audio.pause();
+      musicBtn.classList.remove("playing");
+      playIcon.style.display = "block";
+      pauseIcon.style.display = "none";
+    }
+
+    function toggleMusic() {
+      if (audio.paused) {
+        playMusic();
+      } else {
+        pauseMusic();
+      }
+    }
+
+    musicBtn.addEventListener("click", toggleMusic);
+
+    // Play music automatically when user clicks "Open Invitation"
+    openBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        playMusic();
+      }
+    });
+
+    /* -------------------------
+       COUNTDOWN
+    ------------------------- */
+
+    const weddingDate =
+      new Date("October 11, 2026 13:00:00").getTime();
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+
+      const difference = weddingDate - now;
+
+      if (difference <= 0) {
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+      }
+
+      const days =
+        Math.floor(difference / (1000 * 60 * 60 * 24));
+
+      const hours =
+        Math.floor(
+          (difference % (1000 * 60 * 60 * 24))
+          / (1000 * 60 * 60)
+        );
+
+      const minutes =
+        Math.floor(
+          (difference % (1000 * 60 * 60))
+          / (1000 * 60)
+        );
+
+      const seconds =
+        Math.floor(
+          (difference % (1000 * 60))
+          / 1000
+        );
+
+      document.getElementById("days").textContent =
+        days;
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+
+    /* -------------------------
+       SCROLL REVEAL
+    ------------------------- */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+  </script>
+
+</body>
+</html>
